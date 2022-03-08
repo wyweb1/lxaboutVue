@@ -1,2 +1,2 @@
 # lxaboutVue
-myself vue lx projects
+myself vue lx projects from github
