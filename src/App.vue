@@ -5,10 +5,11 @@
     <TitleGood v-bind:msg="title" />
 
     <!-- 目录 -->
-    <div class="catalogBox">
+    <!-- <div class="catalogBox">
       <Catalog v-for="item in catalogolist " :key="item.title" v-bind:list="item"/>
-    </div>
-    
+    </div> -->
+    <router-link to="/helloworld"><a href="/helloworld">hello</a></router-link>
+    <router-link to="/fruit"><a href="/fruit">水果超市</a></router-link>
 
    
   </div>

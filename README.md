@@ -1,6 +1,7 @@
 # my-vue
 
-> A Vue.js project
+> A Vue.js project author of wyweb1
+
 
 ## Build Setup
 

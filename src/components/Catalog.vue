@@ -1,7 +1,6 @@
 <template>
     <div id="catalog">
-       <!-- <a href="">• {{list.title}}</a> -->
-       <router-link to="/helloworld">• {{list.title}}</router-link>
+       <a href="">• {{list.title}}</a>
     </div>
 </template>
 <script>

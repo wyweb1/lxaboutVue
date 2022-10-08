@@ -1,20 +1,22 @@
 
 <template>
     <div id="fruit">
-     
+      <router-view></router-view>
       <TitleGood v-bind:msg='title'/>
       <div  class="showBox">
         <Show v-for="item in goods" :key="item.name" v-bind:good="item" v-on:onAddGoods="onAddGoods" v-on:onSubtract="onSubtract"/>
       </div>
       <!--  -->
       <p>总计：{{sum}}</p>
+
+      
     </div>
   </template>
   
   <script>
   // 引入外部组件，然后在本组件components属性里注册他们
-  import Show from './components/Show.vue';
-  import TitleGood from './components/TitleGood.vue';
+  import Show from './Show.vue';
+  import TitleGood from './TitleGood.vue';
   
   export default {
     name:'Fruit',
