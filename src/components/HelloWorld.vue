@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg2 }}</h1>
-   
+    <router-view/>
   </div>
 </template>
 

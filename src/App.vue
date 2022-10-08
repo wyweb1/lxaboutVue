@@ -1,66 +1,71 @@
 
 <template>
   <div id="app">
-    <img src="./assets/leaf.png">
-    <TitleGood/>
-    <div  class="showBox">
-      <Show v-for="item in goods" :key="item.name" v-bind:good="item" v-on:onAddGoods="onAddGoods" v-on:onSubtract="onSubtract"/>
+    <!-- <img src="./assets/leaf.png"> -->
+    <TitleGood v-bind:msg="title" />
+
+    <!-- 目录 -->
+    <div class="catalogBox">
+      <Catalog v-for="item in catalogolist " :key="item.title" v-bind:list="item"/>
     </div>
-    <!--  -->
-    <p>总计：{{sum}}</p>
+    
+
+   
   </div>
 </template>
 
 <script>
 // 引入外部组件，然后在本组件components属性里注册他们
-import Show from './components/Show.vue';
 import TitleGood from './components/TitleGood.vue';
-
+import Catalog from './components/Catalog.vue';
 export default {
   components:{ 
     TitleGood,
-    Show,
+    Catalog,
     
   },
   name: 'App',
   data(){
     return{
-      sum:0,
-      goods:[
-          {name:'apple',price:15,kucun:20,maxkc:20,buy:0,id:1},
-          {name:'orange',price:10,kucun:100,maxkc:100,buy:0,id:2},
-          {name:'banner',price:4,kucun:60,maxkc:60,buy:0,id:3},
-          {name:'lemon',price:6,kucun:90,maxkc:90,buy:0,id:4},
+      
+      title:'目录',
+      catalogolist:[
+        {title:'水果超市',url:'/Fruit'},
       ]
     }
   },
   methods:{
-    onAddGoods:function(item){
-      // 库存-1，购物车+1，总计++
-      let index = item[1]-1;
-      let good = this.goods[index];
+    
+  },
 
-      if(good.kucun){
-        good.buy +=1;
-        good.kucun -=1;
-        this.sum += item[0];
-      }else{
-        // 库存为0什么都不做
-        //button样式禁用
-      }   
-    },
-    onSubtract:function(item){
-      // 库存+1，购物车-1，总计--
-      let index = item[1]-1;
-      let good = this.goods[index];
+// 声明周期
 
-      if(good.kucun<=good.maxkc){
-        good.buy -=1
-        good.kucun +=1;
-        this.sum -=item[0];
-      }     
-    }
-  }
+  beforeCreate(){//创建前
+  // 在实例初始化之后，数据观测和事件配置之前被调用，此时组件的选项对象还未创建，el 和 data 并未初始化，因此无法访问methods， data， computed等上的方法和数据
+  },
+  created(){//创建后？
+
+  },
+  beforeMount(){//挂在开始之前被调用？
+
+  },
+  mounted(){
+  // 挂在完成，也就是模板中的HTML渲染到HTML页面中，此时一般可以做一些ajax操作，mounted只会执行一次。
+  },
+  beforeUpdate(){
+  // 在数据更新之前被调用，发生在虚拟DOM重新渲染和打补丁之前，可以在该钩子中进一步地更改状态，不会触发附加地重渲染过程
+  },
+  updated(){
+  // 更新后，在由于数据更改导致地虚拟DOM重新渲染和打补丁只会调用，调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作，然后在大多是情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环，该钩子在服务器端渲染期间不被调用
+  },
+  beforeDestroy(){
+  //销毁前
+  // 在实例销毁之前调用，实例仍然完全可用，这一步还可以用this来获取实例，一般在这一步做一些重置的操作，比如清除掉组件中的定时器 和 监听的dom事件
+  },
+  destroyed(){
+  //销毁后
+  //在实例销毁之后调用，调用后，所以的事件监听器会被移出，所有的子实例也会被销毁，该钩子在服务器端渲染期间不被调用
+  },
 }
 
 </script>
@@ -70,9 +75,11 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
+  margin:0 auto;
   margin-top: 60px;
+  width: 90%;
 }
 #app  img{
   width: 40px;
@@ -88,5 +95,9 @@ p{
   line-height: 40px;
   border: 1px solid #4385c7;
   width: 842px;
+}
+.catalogBox{
+  width: 100%;
+
 }
 </style>
