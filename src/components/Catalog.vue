@@ -1,6 +1,6 @@
 <template>
     <div id="catalog">
-       <a href="">• {{list.title}}</a>
+       <a href="javascript:void(0);" @click="toFruitPage">• {{list.title}}</a>
     </div>
 </template>
 <script>
@@ -21,6 +21,14 @@
         methods:{
             test(){
                 console.log(this.list,'pp')
+            },
+            toFruitPage(){
+                // this.$router.push({
+                //     path:'/src/components/Fruit.vue',
+                //     query:{
+                //         mallCode:'000'
+                //     }
+                // })
             }
         },
 

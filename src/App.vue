@@ -8,8 +8,10 @@
     <!-- <div class="catalogBox">
       <Catalog v-for="item in catalogolist " :key="item.title" v-bind:list="item"/>
     </div> -->
-    <router-link to="/helloworld"><a href="/helloworld">hello</a></router-link>
-    <router-link to="/fruit"><a href="/fruit">水果超市</a></router-link>
+
+    <router-link :to="{ path: '/fruit'}">水果超市</router-link>
+    <br>
+    
 
    
   </div>
@@ -31,7 +33,7 @@ export default {
       
       title:'目录',
       catalogolist:[
-        {title:'水果超市',url:'/Fruit'},
+        {title:'fruit-shopping',url:'/Fruit'},
       ]
     }
   },
