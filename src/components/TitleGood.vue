@@ -21,6 +21,7 @@
 h1, h2 {
   font-weight: normal;
   color: #000;
+  margin-bottom: 20px;
   /* color: #4385c7; */
 }
 </style>

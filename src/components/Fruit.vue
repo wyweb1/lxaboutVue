@@ -9,6 +9,8 @@
       <!--  -->
       <p>总计：{{sum}}</p>
 
+
+      <router-view/>
       
     </div>
   </template>
@@ -28,7 +30,7 @@
     
     data(){
       return{
-        title:'水果超市-crud',
+        title:'fruit-crud',
         sum:0,
         goods:[
             {name:'apple',price:15,kucun:20,maxkc:20,buy:0,id:1},
@@ -89,11 +91,12 @@
     color: #4385c7;
   }
   p{
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    padding: 0 20px;
     color: #4385c7;
     line-height: 40px;
     border: 1px solid #4385c7;
-    width: 842px;
+    width: 800px;
   }
   </style>
   

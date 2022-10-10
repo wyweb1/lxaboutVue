@@ -3,12 +3,17 @@ import Router from 'vue-router'
 import Catalog from '@/components/Catalog'
 import HelloWorld from '@/components/HelloWorld'
 import Fruit from '@/components/Fruit'
-
+import Home from '@/components/home/Home'
 Vue.use(Router)
 
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',//访问路由的路径
+    //   name: 'App',//路由名称
+    //   component: App,//对应组件
+    // },
     {
       path: '/helloworld',//访问路由的路径
       name: 'HelloWorld',//路由名称
@@ -23,6 +28,11 @@ export default new Router({
       path: '/fruit',//访问路由的路径
       name: 'Fruit',//路由名称
       component: Fruit,//对应组件
+    },
+    {
+      path: '/home/', 
+      name: 'Home',
+      component: Home,
     },
    
   ]

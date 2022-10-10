@@ -5,14 +5,13 @@
     <TitleGood v-bind:msg="title" />
 
     <!-- 目录 -->
-    <!-- <div class="catalogBox">
+    <div class="catalogBox">
       <Catalog v-for="item in catalogolist " :key="item.title" v-bind:list="item"/>
-    </div> -->
+    </div>
 
-    <router-link :to="{ path: '/fruit'}">水果超市</router-link>
-    <br>
-    
 
+    <!--  路由展示窗口-->
+    <router-view/>
    
   </div>
 </template>
@@ -33,7 +32,8 @@ export default {
       
       title:'目录',
       catalogolist:[
-        {title:'fruit-shopping',url:'/Fruit'},
+        {title:'fruit-shopping',url:'/fruit'},
+        {title:'home',url:'/home'},
       ]
     }
   },
@@ -73,7 +73,11 @@ export default {
 
 </script>
 
-<style>
+<style >
+*{box-sizing: border-box; -moz-box-sizing: border-box;  -webkit-box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; margin: 0;padding: 0;font-family: "思源黑体 CN" ;}
+input,textarea{outline: none;}
+a{text-decoration: none;}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -84,23 +88,6 @@ export default {
   margin-top: 60px;
   width: 90%;
 }
-#app  img{
-  width: 40px;
-  height: 40px;
-}
-.showBox{
-  display: inline-block;
-  color: #4385c7;
-}
-p{
-  margin: 0 auto;
-  color: #4385c7;
-  line-height: 40px;
-  border: 1px solid #4385c7;
-  width: 842px;
-}
-.catalogBox{
-  width: 100%;
 
-}
+
 </style>

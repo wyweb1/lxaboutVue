@@ -1,6 +1,9 @@
 <template>
-    <div id="catalog">
-       <a href="javascript:void(0);" @click="toFruitPage">• {{list.title}}</a>
+    <div id="catalog" >
+        <div class="list_itme" @click="toFruitPage">
+            • {{list.title}}
+        </div>
+       
     </div>
 </template>
 <script>
@@ -14,7 +17,7 @@
         },
         data(){
             return{
-
+                isShow:false,
             }
         },
 
@@ -23,12 +26,8 @@
                 console.log(this.list,'pp')
             },
             toFruitPage(){
-                // this.$router.push({
-                //     path:'/src/components/Fruit.vue',
-                //     query:{
-                //         mallCode:'000'
-                //     }
-                // })
+                console.log('点击了');
+                this.$router.push(this.list.url)
             }
         },
 
@@ -67,6 +66,8 @@
 #catalog{
     width: 100%;
     text-align: left;
+    margin-top: 10px;
+    
 
 }
 a{
@@ -75,5 +76,8 @@ a{
     line-height: 30px;
     font-size: 20px;
     color: #000;
+}
+.list_itme{
+    cursor: pointer;
 }
 </style>
