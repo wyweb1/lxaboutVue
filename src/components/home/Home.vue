@@ -1,21 +1,51 @@
 <template>
     <div class="homm">
-        <p class="title"><img class="logo" src="../../assets/leaf.png" alt="" />{{title}}</p>
-        <HomeHeader/>
+        <router-view/>
+        <HomeTab v-bind:tabList="tabList" />
         
     </div>
 </template>
 <script>
-import HomeHeader from './HomeHeader.vue'
+
+import HomeTab from './HomeTab.vue'
     export default{
         name:'Home',
         components:{
-            HomeHeader,
+           
+            HomeTab,
         },
         data(){
             return{
                 title:'home',
+                tabList:[
+                    {
+                        title:'首页',
+                        unactpic:'/static/image/footer_index.png',
+                        actpic:'/static/image/footer_index_ac.png',
+                        path:'/homeindex',
+                        isact:true,
+                    },
+                    {
+                        title:'列表页',
+                        unactpic:'/static/image/footer_list.png',
+                        actpic:'/static/image/footer_list_act.png',
+                        path:'homelist',
+                        isact:false,
+                    },
+                    {
+                        title:'设置',
+                        unactpic:'/static/image/footer_xj.png',
+                        actpic:'/static/image/footer_xj_ac.png',
+                        path:'homeset',
+                        isact:false,
+                    }
+                ],
             }
+        },
+        undate(){
+            let path = this.$router.path;
+            console.log(path,'path')
+            
         }
     }
 </script>
@@ -30,21 +60,13 @@ import HomeHeader from './HomeHeader.vue'
     background: #f7f7f7;
     width: 750px;
     height: 800px;
-    padding: 20px;
+    /* padding: 20px; */
+    position: relative;
 }
 .flexCommon{
     display: flex;
-    justify-content: space-between;
+   
     align-items: center;
-}
-.title{
-    font-size: 30px;
-    line-height: 50px;
-    height: 50px;
-}
-.logo{
-    width: 50px;height: 50px;
-    vertical-align: middle;
 }
 
 

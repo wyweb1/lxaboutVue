@@ -4,6 +4,12 @@ import Catalog from '@/components/Catalog'
 import HelloWorld from '@/components/HelloWorld'
 import Fruit from '@/components/Fruit'
 import Home from '@/components/home/Home'
+import HomeIndex from '@/components/home/HomeIndex'
+
+import HomeList from '@/components/home/HomeList'
+import HomeSet from '@/components/home/HomeSet'
+import HomeThisItem from '@/components/home/HomeThisItem'
+
 Vue.use(Router)
 
 
@@ -20,19 +26,30 @@ export default new Router({
       component: HelloWorld,//对应组件
     },
     {
-      path: '/catalog',//访问路由的路径
-      name: 'Catalog',//路由名称
-      component: Catalog,//对应组件
+      path: '/catalog',
+      name: 'Catalog',
+      component: Catalog,
     },
     {
-      path: '/fruit',//访问路由的路径
-      name: 'Fruit',//路由名称
-      component: Fruit,//对应组件
+      path: '/fruit',
+      name: 'Fruit',
+      component: Fruit
     },
     {
-      path: '/home/', 
+      path: '/home', 
       name: 'Home',
       component: Home,
+      children:[
+        {path:'/',component:HomeIndex},
+        {path:'/homeindex',component:HomeIndex},
+        {path:'/homelist',component:HomeList},
+        {path:'/homeset',component:HomeSet},
+      ]
+    },
+    {
+      path: '/thisitem/:id',
+      name: 'HomeThisItem',
+      component: HomeThisItem
     },
    
   ]

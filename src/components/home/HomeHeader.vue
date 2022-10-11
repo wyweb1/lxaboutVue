@@ -22,7 +22,8 @@
 .header{
     width: 100%;
     height: 88px;
-
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .header input{
