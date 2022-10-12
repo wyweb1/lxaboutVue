@@ -21,7 +21,7 @@ export default new Router({
     {
       path: '/',//访问路由的路径
      
-      component:CataLogBox,//对应组件
+      component:CataLogBox,//打开该项目默认展示的组件！
     },
     {
       path: '/helloworld',//访问路由的路径
