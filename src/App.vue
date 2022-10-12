@@ -2,15 +2,9 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/leaf.png"> -->
-    <TitleGood v-bind:msg="title" />
+  
 
-    <!-- 目录 -->
-    <div class="catalogBox">
-      <Catalog v-for="item in catalogolist " :key="item.title" v-bind:list="item"/>
-    </div>
-
-
-    <!--  路由展示窗口-->
+    <!--  路由展示窗口/区域 ：直接子路由展示区域，如果根组件APP为A，则A的孩子B底下还有子路由B-a且B组件也设置router-view了那B-a在B组件的router-view里展示-->
     <router-view/>
    
   </div>
@@ -18,23 +12,15 @@
 
 <script>
 // 引入外部组件，然后在本组件components属性里注册他们
-import TitleGood from './components/TitleGood.vue';
-import Catalog from './components/Catalog.vue';
+
 export default {
-  components:{ 
-    TitleGood,
-    Catalog,
-    
-  },
+ 
   name: 'App',
   data(){
     return{
       
       title:'目录',
-      catalogolist:[
-        {title:'fruit-shopping',url:'/fruit'},
-        {title:'home',url:'/home'},
-      ]
+      
     }
   },
   methods:{

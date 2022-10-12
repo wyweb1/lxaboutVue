@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import App from '@/App'
+import AppWhiteShow from '@/components/AppWhiteShow'
+import CataLogBox from '@/components/CataLogBox'
 import Catalog from '@/components/Catalog'
 import HelloWorld from '@/components/HelloWorld'
 import Fruit from '@/components/Fruit'
@@ -15,11 +18,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',//访问路由的路径
-    //   name: 'App',//路由名称
-    //   component: App,//对应组件
-    // },
+    {
+      path: '/',//访问路由的路径
+     
+      component:CataLogBox,//对应组件
+    },
     {
       path: '/helloworld',//访问路由的路径
       name: 'HelloWorld',//路由名称
@@ -37,7 +40,7 @@ export default new Router({
     },
     {
       path: '/home', 
-      name: 'Home',
+      // name: 'Home',//有子路由的父级不要name属性控制台会报错误提醒
       component: Home,
       children:[
         {path:'/',component:HomeIndex},

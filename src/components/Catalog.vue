@@ -33,6 +33,7 @@
 
         beforeCreate(){//创建前
             // 在实例初始化之后，数据观测和事件配置之前被调用，此时组件的选项对象还未创建，el 和 data 并未初始化，因此无法访问methods， data， computed等上的方法和数据
+            
         },
         created(){//创建后
             // this.test()
