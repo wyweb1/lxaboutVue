@@ -21,10 +21,14 @@ import HomeHeader from './HomeHeader.vue'
             }
         },
         beforeUpdate(){
+            
+        },
+        created(){//创建后？
             let path = this.$router.path;
             console.log(path,'pathindex')
-            
-        }
+           
+            console.log(this.$router,'router参数');
+        },
     }
 </script>
 <style >

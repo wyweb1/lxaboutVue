@@ -20,12 +20,17 @@
   // 引入外部组件，然后在本组件components属性里注册他们
   import Catalog from './Catalog.vue';
   import TitleGood from './TitleGood.vue';
+
+  // 引入状态管理模式-store
+  import {store} from '../store/store.js'
+
   export default {
     components:{ 
       TitleGood,
       Catalog,
       
     },
+    
     name: 'CataLogBox',
     data(){
       return{
@@ -39,6 +44,20 @@
     },
     methods:{
       
+    },
+    beforeRouteEnter (to, from, next) {
+      // ...
+      //进入该页面前隐藏侧边栏
+      store.modifyNavLeftShow(false);
+      
+      next(true);
+    },
+    beforeRouteLeave(to, from, next) {
+      // ...
+      //离开该页面前显示改组件
+      store.modifyNavLeftShow(true);
+
+      next(true);
     },
   
   // 声明周期

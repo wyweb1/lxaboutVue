@@ -3,7 +3,7 @@
   <div id="app">
     <!-- <img src="./assets/leaf.png"> -->
   
-
+    <NavLeftStart v-if="isShowNav" />
     <!--  路由展示窗口/区域 ：直接子路由展示区域，如果根组件APP为A，则A的孩子B底下还有子路由B-a且B组件也设置router-view了那B-a在B组件的router-view里展示-->
     <router-view/>
    
@@ -12,19 +12,27 @@
 
 <script>
 // 引入外部组件，然后在本组件components属性里注册他们
+import NavLeftStart from './components/NavLeftStart.vue'
 
+ // 引入状态管理模式-store
+import {store} from './store/store.js'
+  
 export default {
  
   name: 'App',
+  components:{
+    NavLeftStart,
+  },
   data(){
     return{
       
       title:'目录',
+      isShowNav:false,//是否展示侧边导航组件
       
     }
   },
   methods:{
-    
+   
   },
 
 // 声明周期
@@ -43,6 +51,7 @@ export default {
   },
   beforeUpdate(){
   // 在数据更新之前被调用，发生在虚拟DOM重新渲染和打补丁之前，可以在该钩子中进一步地更改状态，不会触发附加地重渲染过程
+   this.isShowNav = store.state.iShowNavCommon;
   },
   updated(){
   // 更新后，在由于数据更改导致地虚拟DOM重新渲染和打补丁只会调用，调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作，然后在大多是情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环，该钩子在服务器端渲染期间不被调用

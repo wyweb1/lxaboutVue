@@ -17,7 +17,7 @@
   
   <script>
   // 引入外部组件，然后在本组件components属性里注册他们
-  import Show from './Show.vue';
+  import Show from './FruitShow.vue';
   import TitleGood from './TitleGood.vue';
   
   export default {
@@ -42,7 +42,7 @@
     },
     methods:{
       onAddGoods:function(item){
-        // 库存-1，购物车+1，总计++
+        // 库存-1，购物车+1，总计++ /有bug id有的不连续就不能用index = id-1来计算；
         let index = item[1]-1;
         let good = this.goods[index];
   
@@ -54,6 +54,23 @@
           // 库存为0什么都不做
           //button样式禁用
         }   
+
+        //前提：商品id都是唯一?
+        // this.goods.find((item2)=>{
+        //     if(item2.id==item.id){
+
+        //         if(item2.kucun){
+        //           item2.buy +=1;
+        //           item2.kucun -=1;
+        //           this.sum += item[0];
+        //         }else{
+        //           // 库存为0什么都不做
+        //           //button样式禁用
+        //         }   
+        //     }
+        //   })
+
+          
       },
       onSubtract:function(item){
         // 库存+1，购物车-1，总计--
@@ -65,7 +82,8 @@
           good.kucun +=1;
           this.sum -=item[0];
         }     
-      }
+      },
+     
     },
     
 
@@ -74,7 +92,7 @@
   </script>
   
   <style scoped>
-  #app {
+  #fruit {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -82,7 +100,7 @@
     color: #2c3e50;
     margin-top: 60px;
   }
-  #app  img{
+  #fruit  img{
     width: 40px;
     height: 40px;
   }
@@ -91,7 +109,7 @@
     color: #4385c7;
   }
   p{
-    /* margin: 0 auto; */
+    margin: 0 auto;
     padding: 0 20px;
     color: #4385c7;
     line-height: 40px;
