@@ -2,8 +2,18 @@
 //相当于全局方法和全局属性
 export const store = {
     state:{//数据
-        iShowNavCommon:true,//侧边导航的显示与隐藏
-       
+        iShowNavCommon:false,//侧边导航的显示与隐藏
+        catalogolist:[//项目目录
+            {title:'fruit-shopping',url:'/fruit'},
+            {title:'home',url:'/home'},
+
+          ],
+          navcatalogolist:[//侧边栏项目目录
+            {title:'主页',url:'/'},
+            {title:'fruit-shopping',url:'/fruit'},
+            {title:'home',url:'/home'},
+          
+          ]
 
     },
     modifyNavLeftShow(params){
